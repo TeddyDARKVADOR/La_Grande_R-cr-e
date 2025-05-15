@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Favoris - La Grande Récré</title>
+    <link rel="stylesheet" href="css/produits.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/favoris.css">
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('display/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+
+    <section class="product-list">
+        <h2>Mes Favoris</h2>
+        <div class="products" id="favorites-list">
+            <!-- Les favoris seront injectés ici dynamiquement par JS -->
+        </div>
+        <div id="no-favorites" style="display:none; text-align:center; color:#888; margin:40px 0; font-size:1.2em; background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(70,151,244,0.07); padding:30px 0;">
+            Vos favoris sont seuls ajoutez en d'autres.
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script>
+        fetch('display/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
+        // Gestion des favoris (localStorage)
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritesList = document.getElementById('favorites-list');
+            const noFavorites = document.getElementById('no-favorites');
+            let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+            if (favorites.length === 0) {
+                noFavorites.style.display = 'block';
+            } else {
+                noFavorites.style.display = 'none';
+                favorites.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <img class="product-img" src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <div class="product-meta">${product.category || ''}</div>
+                        <button class="remove-favorite" data-id="${product.id}">Retirer des favoris</button>
+                    `;
+                    favoritesList.appendChild(card);
+                });
+            }
+
+            favoritesList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-favorite')) {
+                    const id = e.target.getAttribute('data-id');
+                    favorites = favorites.filter(p => p.id !== id);
+                    localStorage.setItem('favorites', JSON.stringify(favorites));
+                    e.target.closest('.product-card')?.remove();
+                    if (favoritesList.children.length === 0) {
+                        noFavorites.style.display = 'block';
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* Section carrousel améliorée */
+        .carousel-section {
+            padding: 40px 5%;
+            text-align: center;
+            background-color: #FBC74F;
+            
+        }
+        
+        .carousel-section h2 {
+            font-family: "Roboto Condensed", var(--font-fallback-sans-serif);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .swiper-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            
+        }
+        
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            padding: 20px;
+            height: auto;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .swiper-slide:hover {
+            transform: translateY(-5px);
+        }
+        
+        .swiper-slide img {
+            width: 80%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .swiper-slide p {
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+         .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            opacity: 0.7;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background-color: #fde200;
+            opacity: 1;
+        }

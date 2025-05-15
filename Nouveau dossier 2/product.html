@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produits - La Grande Récré</title>
+  <link rel="stylesheet" href="css/produits.css" />
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('display/header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
+
+  <!-- ✅ Liste des produits -->
+  <section class="product-list">
+    <h2>Nos Jouets</h2>
+
+     <!-- ✅ Filtres de recherche -->
+  <section class="filters">
+    <form id="filters-form">
+      <input type="text" placeholder="Rechercher un jouet, une marque..." class="filter-search" />
+      <select class="filter-category">
+        <option value="">Catégorie</option>
+        <option>Jeux de construction</option>
+        <option>Figurines</option>
+        <option>Créativité</option>
+        <option>Jeux d'action</option>
+        <option>Jeux éducatifs</option>
+        <option>Jeux de société</option>
+      </select>
+      <select class="filter-age">
+        <option value="">Âge</option>
+        <option>0-2 ans</option>
+        <option>3-5 ans</option>
+        <option>6-8 ans</option>
+        <option>9-12 ans</option>
+        <option>12+ ans</option>
+      </select>
+      <button type="submit">Filtrer</button>
+    </form>
+  </section>
+
+    <div class="products">
+      <div class="product-card" data-id="dino-robot" data-name="Dino Robot" data-image="images/dino_robot.png" data-category="Jeux d'action" data-price="29,99€">
+        <img src="images/dino_robot.png" alt="Dino Robot" class="product-img">
+        <h4>Dino Robot</h4>
+        <p>29,99€</p>
+        <div class="product-meta">❤️ 122 • 🛒 98</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="vaisseau-alien" data-name="Vaisseau Alien" data-image="images/vaisseau_alien.png" data-category="Science-fiction" data-price="39,99€">
+        <img src="images/vaisseau_alien.png" alt="Vaisseau Alien" class="product-img">
+        <h4>Vaisseau Alien</h4>
+        <p>39,99€</p>
+        <div class="product-meta">❤️ 89 • 🛒 74</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="lego-city-police" data-name="LEGO City Police" data-image="images/lego.png" data-category="Jeux de construction" data-price="49,99€">
+        <img src="images/lego.png" alt="LEGO City Police" class="product-img">
+        <h4>LEGO City Police</h4>
+        <p>49,99€</p>
+        <div class="product-meta">❤️ 210 • 🛒 180</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="nerf-ultra-one" data-name="Nerf Ultra One" data-image="images/nerf.png" data-category="Jeux d'action" data-price="44,99€">
+        <img src="images/nerf.png" alt="Nerf Ultra One" class="product-img">
+        <h4>Nerf Ultra One</h4>
+        <p>44,99€</p>
+        <div class="product-meta">❤️ 170 • 🛒 120</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="meccano-voiture" data-name="Meccano Voiture" data-image="images/official-meccano-logo.gif" data-category="Jeux de construction" data-price="24,99€">
+        <img src="images/official-meccano-logo.gif" alt="Meccano Voiture" class="product-img">
+        <h4>Meccano Voiture</h4>
+        <p>24,99€</p>
+        <div class="product-meta">❤️ 80 • 🛒 55</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="robe-princesse" data-name="Robe de Princesse" data-image="images/robe-de-princesse-et-prince.webp" data-category="Déguisement" data-price="19,99€">
+        <img src="images/robe-de-princesse-et-prince.webp" alt="Robe de Princesse" class="product-img">
+        <h4>Robe de Princesse</h4>
+        <p>19,99€</p>
+        <div class="product-meta">❤️ 140 • 🛒 100</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="armure-chevalier" data-name="Armure de Chevalier" data-image="images/chevalier.jpg" data-category="Déguisement" data-price="29,99€">
+        <img src="images/chevalier.jpg" alt="Armure de Chevalier" class="product-img">
+        <h4>Armure de Chevalier</h4>
+        <p>29,99€</p>
+        <div class="product-meta">❤️ 110 • 🛒 90</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+      <div class="product-card" data-id="optimus-prime" data-name="Optimus Prime" data-image="images/Optimus_prime.png" data-category="Figurines" data-price="59,99€">
+        <img src="images/Optimus_prime.png" alt="Optimus Prime" class="product-img">
+        <h4>Optimus Prime</h4>
+        <p>59,99€</p>
+        <div class="product-meta">❤️ 200 • 🛒 160</div>
+        <div class="product-actions">
+          <button class="add-favorite">Ajouter aux favoris</button>
+          <button class="add-cart">Ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Nos idées -->
+  <section class="ideas-section" aria-labelledby="ideas-title">
+    <h2 id="ideas-title">Nos idées</h2>
+    <div class="ideas-grid" role="list">
+      <article class="idea-card" role="listitem" aria-labelledby="idea1-title">
+        <div class="idea-icon" aria-hidden="true">🎁</div>
+        <h3 id="idea1-title">Cadeaux personnalisés</h3>
+        <p class="idea-desc">Offrez un jouet unique adapté à la personnalité de chaque enfant pour un souvenir inoubliable.</p>
+        <button class="idea-btn" aria-label="En savoir plus sur les cadeaux personnalisés">En savoir plus</button>
+      </article>
+      <article class="idea-card" role="listitem" aria-labelledby="idea2-title">
+        <div class="idea-icon" aria-hidden="true">🧩</div>
+        <h3 id="idea2-title">Jeux éducatifs</h3>
+        <p class="idea-desc">Stimulez la curiosité et l'apprentissage avec des jeux ludiques et pédagogiques pour tous les âges.</p>
+        <button class="idea-btn" aria-label="En savoir plus sur les jeux éducatifs">En savoir plus</button>
+      </article>
+      <article class="idea-card" role="listitem" aria-labelledby="idea3-title">
+        <div class="idea-icon" aria-hidden="true">🌳</div>
+        <h3 id="idea3-title">Jouer en plein air</h3>
+        <p class="idea-desc">Découvrez notre sélection pour s'amuser dehors, développer la motricité et profiter de la nature.</p>
+        <button class="idea-btn" aria-label="En savoir plus sur jouer en plein air">En savoir plus</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- ✅ Conseils d'achat -->
+  <section class="tips">
+    <h2>Conseils pour bien choisir</h2>
+    <ul class="tips-list">
+      <li>Consultez les avis clients pour chaque jouet.</li>
+      <li>Filtrez par âge pour trouver le cadeau idéal.</li>
+      <li>Profitez des promotions du moment.</li>
+      <li>Ajoutez vos coups de cœur en favoris pour les retrouver facilement.</li>
+      <li>Utilisez le panier pour comparer plusieurs jouets.</li>
+    </ul>
+  </section>
+
+  <!-- ✅ Espace Promotionnel (déplacé en bas, amélioré) -->
+  <section class="promo-banner promo-banner-bottom" aria-labelledby="promo-title">
+    <h2 id="promo-title">Promotions Spéciales</h2>
+    <div class="promo-image">
+      <img src="images/dino_robot.png" alt="Réductions exceptionnelles" />
+    </div>
+    <div class="promo-cards">
+      <div class="promo-card" style="--promo-color: var(--prince-color);">
+        <span class="promo-icon" aria-hidden="true">🎉</span>
+        <div class="promo-content">
+          <h3>Jouet du Mois</h3>
+          <p>Profitez de -30% sur le jouet vedette sélectionné par nos experts !</p>
+        </div>
+      </div>
+      <div class="promo-card" style="--promo-color: var(--chevalier-color);">
+        <span class="promo-icon" aria-hidden="true">💡</span>
+        <div class="promo-content">
+          <h3>Offre Fidélité</h3>
+          <p>Doublez vos points sur tous les achats ce week-end avec votre carte fidélité.</p>
+        </div>
+      </div>
+      <div class="promo-card" style="--promo-color: var(--roi-color);">
+        <span class="promo-icon" aria-hidden="true">🚚</span>
+        <div class="promo-content">
+          <h3>Livraison Gratuite</h3>
+          <p>La livraison est offerte dès 50€ d'achat sur toute la boutique en ligne.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL PANIER -->
+  <div id="cart-modal" class="cart-modal" style="display:none;">
+    <div class="cart-modal-content">
+      <span class="cart-modal-close" id="close-cart-modal">&times;</span>
+      <h2>Mon Panier</h2>
+      <div id="cart-items-list"></div>
+      <div id="cart-empty-message" style="display:none; color:#888; text-align:center; margin:30px 0;">Votre panier est vide.</div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+  <script>
+    fetch('display/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+
+  <script>
+  // Animation d'apparition des cartes au scroll (Intersection Observer)
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.idea-card');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      cards.forEach(card => observer.observe(card));
+    } else {
+      // Fallback si IntersectionObserver non supporté
+      cards.forEach(card => card.classList.add('visible'));
+    }
+  });
+  </script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

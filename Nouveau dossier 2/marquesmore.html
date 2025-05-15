@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marques partenaires</title>
+    <link rel="stylesheet" href="css/marques.css">
+    <link rel="stylesheet" href="css/brands.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/marquesmore.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+    <script>
+        fetch('display/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+
+    <!-- Section Marques -->
+    <section class="brands-container">
+        <h1 class="title">Nos Marques Partenaires</h1>
+        <p class="description">Découvrez toutes les marques qui collaborent avec La Grande Récré pour offrir le meilleur des jouets et loisirs créatifs.</p>
+        
+        <div class="brands-grid">
+            <div class="brand-item"><img src="https://androidxda.com/wp-content/uploads/vtech.png" alt="Vtech"></div>
+            <div class="brand-item"><img src="https://www.kidscompany.cz/user/categories/orig/logo-smoby.png" alt="Smoby"></div>
+            <div class="brand-item"><img src="https://th.bing.com/th/id/R.56af85b06964572310f36118f2a10cef?rik=xtcSnZXfIkbj5Q&riu=http%3a%2f%2fimages.wikia.com%2fnerf%2fimages%2fb%2fb4%2fNerf_logo.png&ehk=52%2fvtsdYiowd9X%2fJe%2bDsfcs07FgwjRgz2qilEaBaJ4Y%3d&risl=&pid=ImgRaw&r=0" alt="Nerf"></div>
+            <div class="brand-item"><img src="https://tse2.mm.bing.net/th/id/OIP.7kixuKv7i5Kcm7u3EPq74AHaG7?rs=1&pid=ImgDetMain" alt="Djeco"></div>
+            <div class="brand-item"><img src="images/official-meccano-logo.gif" alt="Meccano"></div>
+            <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2560px-LEGO_logo.svg.png" alt="Lego"></div>
+            <div class="brand-item"><img src="https://1000logos.net/wp-content/uploads/2020/09/Playmobil-logo-1080x498.png" alt="Playmobil"></div>
+            <div class="brand-item"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/ea/Hasbro_logo.svg/1200px-Hasbro_logo.svg.png" alt="Hasbro"></div>
+            <div class="brand-item"><img src="https://www.lagranderecre.fr/Storage/images/67729a94d9999_LGR_WEB_HUB_T_mimi.png" alt="T'mimi"></div>
+            <div class="brand-item"><img src="https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/400/400/5d14e4190bad2_Okoia.png" alt="Okoïa"></div>
+            <div class="brand-item"><img src="https://www.lagranderecre.fr/Storage/images/6772a018848a5_LGR_WEB_Team_City.png" alt="Team City"></div>
+            <div class="brand-item"><img src="https://www.lagranderecre.fr/Storage/images/6772a2437a4c5_LGR_WEB_HUB_Le_labo_des_curieux.png" alt="Le labo des curieux "></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('display/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script src="js/script.js" defer></script>
+
+</body>
+</html>

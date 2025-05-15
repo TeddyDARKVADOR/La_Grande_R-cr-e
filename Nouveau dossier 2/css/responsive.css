@@ -1,0 +1,171 @@
+    
+        /* Media queries pour responsivité */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 3%;
+            }
+            
+            .navbar ul {
+                display: none;
+            }
+            
+            .burger-menu {
+                display: flex;
+            }
+            
+            .navbar-right {
+                margin-left: auto;
+            }
+            
+            .search-bar {
+                display: none;
+            }
+
+            .user-icons {
+                display: none;
+            }
+            
+            .swiper-container {
+                width: 95%;
+            }
+            
+            .swiper-slide img {
+                width: 90%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .age-circles-container {
+                gap: 15px;
+            }
+            
+            .age-circle, .circle {
+                width: 120px;
+                height: auto;
+            }
+            
+            .circle {
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .swiper-slide {
+                padding: 10px;
+            }
+            
+            .carousel-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .age-circle, .circle {
+                width: 100px;
+                height: auto;
+            }
+            
+            .circle {
+                height: 100px;
+            }
+            
+            .age-circle p {
+                font-size: 0.8rem;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .favorites-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+        /* Menu burger pour mobile */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .burger-line {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        /* Menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: #4697f4;
+            z-index: 200;
+            transition: left 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .close-menu {
+            color: white;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            margin-top: 60px;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .mobile-user-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .mobile-user-icons a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 150;
+            display: none;
+        }
+        
+      

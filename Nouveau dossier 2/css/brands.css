@@ -1,0 +1,82 @@
+   /* Nos top marques */
+        .top-brands {
+            padding: 30px 5%;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .top-brands h2 {
+            color: #003b7a;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .brands-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .brand-logo {
+            min-width: 120px;
+            height: 60px;
+            object-fit: contain;
+            margin: 0 15px;
+            transition: transform 0.3s;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .brands-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev-brand {
+            right: 1200px;
+        }
+
+        .next-brand {
+            left: 1200px;
+        }
+
+        .brands-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .see-all-brands {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #003b7a;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .see-all-brands:hover {
+            background-color: #002555;
+        }

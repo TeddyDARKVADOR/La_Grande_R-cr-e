@@ -1,0 +1,68 @@
+ /* Section catégories par âge */
+.age-categories {
+            padding: 40px 5%;
+            text-align: center;
+            background-color: #fff8e1;
+        }
+        
+        .age-categories h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #003b7a;
+        }
+        
+        .age-circles-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .age-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            transition: transform 0.3s;
+        }
+        
+        .age-circle:hover {
+            transform: translateY(-10px);
+        }
+        
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .circle img {
+            width: 85%;
+            height: 85%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .age-circle p {
+            font-weight: bold;
+            color: #003b7a;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        
+        .green { background-color: #8ed8c3; }
+        .yellow { background-color: #fde200; }
+        .blue { background-color: #4697f4; }
+        .orange { background-color: #ff8642; }
+        .purple { background-color: #a591e8; }
+        .red { background-color: #ff5252; }
+        .teal { background-color: #4db6ac; }
+        

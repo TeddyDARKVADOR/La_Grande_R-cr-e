@@ -1,0 +1,16 @@
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --primary-color: #1e88e5;
+  --highlight-color: #ffca28;
+  --nav-text-color: white;
+  --nav-hover-bg: rgba(255, 255, 255, 0.2);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #003b7a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

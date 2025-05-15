@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Grande Récré - Mon Site</title>
+        <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+     <div id="header"></div>
+<script>
+    fetch('display/header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+</script>
+
+<section class="loyalty-section">
+    <h1 class="loyalty-title">Nouveau Programme de Fidélité</h1>
+    
+    <div class="loyalty-container">
+        <a class="loyalty-main" href="#programme-fidelite-chevalier">
+            <div class="loyalty-overlay"></div>
+            <img src="images/top_left.png" alt="Programme fidélité Prince/Princesse" class="loyalty-image">
+            <div class="loyalty-text loyalty-text-lg">
+                 Petit Prince et Petite Princesse
+                <div class="loyalty-benefits">Surprises et offres spéciales pour les enfants</div>
+            </div>
+        </a>
+        
+        <div class="loyalty-side">
+            <a class="loyalty-card" href="#programme-fidelite-prince-princesse">
+                <div class="loyalty-overlay"></div>
+                <img src="images/bottom_left.png" alt="Programme fidélité Chevalier" class="loyalty-image">
+                <div class="loyalty-text">
+                    Devenez Chevalier
+                    <div class="loyalty-benefits">Obtenez 5% de remise sur tous vos achats et accédez à des offres exclusives</div>
+                </div>
+            </a>
+              <a class="loyalty-card" href="#programme-fidelite-prince-princesse">
+                <div class="loyalty-overlay"></div>
+                <img src="images/bottom_right.png" alt="Programme fidélité Roi/Reine" class="loyalty-image">
+                <div class="loyalty-text">
+                    Avantages Roi et Reine
+                    <div class="loyalty-benefits">-10% toute l'année et cadeaux anniversaire</div>
+                </div>
+            </a>
+           
+        </div>
+    </div>
+    
+    <a href="Fidelite.html" class="loyalty-cta">DÉCOUVRIR LE PROGRAMME</a>
+</section>
+
+   
+    <!-- Section Catégories par Âge -->
+    <div class="age-categories">
+        <h2>Les jeux et jouets par âge</h2>
+        <div class="age-circles-container">
+            <div class="age-circle">
+                <div class="circle green">
+                    <img src="images/0-12mois.png" alt="Bébé 0-12 mois">
+                </div>
+                <p>0-12 MOIS</p>
+            </div>
+            <div class="age-circle">
+                <div class="circle yellow">
+                    <img src="images/1-3ans.jpg" alt="Enfant 1-3 ans">
+                </div>
+                <p>1-3 ANS</p>
+            </div>
+            <div class="age-circle">
+                <div class="circle blue">
+                    <img src="images/3-5.png" alt="Enfant 3-5 ans">
+                </div>
+                <p>3-5 ANS</p>
+            </div>
+            <div class="age-circle">
+                <div class="circle orange">
+                    <img src="images/6-8ans.png" alt="Enfant 6-8 ans">
+                </div>
+                <p>6-8 ANS</p>
+            </div>
+            <div class="age-circle">
+                <div class="circle purple">
+                    <img src="images/9-10ans.png" alt="Enfant 9-11 ans">
+                </div>
+                <p>9-11 ANS</p>
+            </div>
+            <div class="age-circle">
+                <div class="circle red">
+                    <img src="images/12+.png" alt="Enfant 12 ans et plus">
+                </div>
+                <p>12 ANS ET +</p>
+            </div>
+            <div class="age-circle">
+                <div class="circle teal">
+                    <img src="images/adulte.png" alt="Adultes">
+                </div>
+                <p>ADULTES</p>
+            </div>
+        </div>
+    </div>
+
+ <!-- Section Nos top marques -->
+    <div class="top-brands">
+        <h2>Nos tops marques</h2>
+        <div class="brands-wrapper">
+            <div class="brands-container">
+                <img class="brand-logo" src="https://androidxda.com/wp-content/uploads/vtech.png" alt="Vtech">
+                <img class="brand-logo" src="https://www.kidscompany.cz/user/categories/orig/logo-smoby.png" alt="Smoby">
+                <img class="brand-logo" src="https://th.bing.com/th/id/R.56af85b06964572310f36118f2a10cef?rik=xtcSnZXfIkbj5Q&riu=http%3a%2f%2fimages.wikia.com%2fnerf%2fimages%2fb%2fb4%2fNerf_logo.png&ehk=52%2fvtsdYiowd9X%2fJe%2bDsfcs07FgwjRgz2qilEaBaJ4Y%3d&risl=&pid=ImgRaw&r=0" alt="Nerf">
+                <img class="brand-logo" src="https://tse2.mm.bing.net/th/id/OIP.7kixuKv7i5Kcm7u3EPq74AHaG7?rs=1&pid=ImgDetMain" alt="Djeco">
+                <img class="brand-logo" src="images/official-meccano-logo.gif" alt="Meccano">
+                <img class="brand-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2560px-LEGO_logo.svg.png" alt="Lego">
+                <img class="brand-logo" src="https://1000logos.net/wp-content/uploads/2020/09/Playmobil-logo-1080x498.png" alt="Playmobil">
+                <img class="brand-logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/ea/Hasbro_logo.svg/1200px-Hasbro_logo.svg.png" alt="Hasbro">
+            </div>
+           
+        </div>
+        <a href="marquesmore.html" class="see-all-brands">VOIR TOUTES LES MARQUES <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+<!-- Caroussel des jouets-->
+
+    <div class="carousel-section">
+        <h2>Nos jouets les plus vendus</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/Banzai_lego.webp" alt="Banzai lego">
+                    <p>Banzai Lego - 54,99€</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/Optimus_prime.png" alt="Optimus Prime">
+                    <p>Optimus Prime Édition Limitée - 24,99€</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/darth_vader_PNG13.png" alt="Dark Vader">
+                    <p>Dark Vader - 80,99€</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/3d-girl-character-riding-a-pencil-and-waving-hand-free-png.webp" alt="Jouets éducative">
+                    <p>Jouets Éducative - 34,99€</p>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+
+
+
+
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+<script>
+    fetch('display/chatbot.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('chatbot').innerHTML = data);
+
+    fetch('display/footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+
+</script>
+
+    <!-- Scripts pour Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // Responsive breakpoints
+                breakpoints: {
+                    // when window width is >= 640px
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    // when window width is >= 968px
+                    968: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+        const checkImage = (img) => {
+            const defaultImg = img.getAttribute('src');
+            img.onerror = function() {
+                
+                if (img.parentElement.classList.contains('loyalty-main')) {
+                    img.parentElement.style.backgroundColor = '#953734';
+                } else if (img.alt.includes('Roi')) {
+                    img.parentElement.style.backgroundColor = '#b3822e';
+                } else {
+                    img.parentElement.style.backgroundColor = '#f9e4c0';
+                }
+                img.style.display = 'none';
+            };
+            img.src = defaultImg;
+        };
+        
+        
+        document.querySelectorAll('.loyalty-image').forEach(checkImage);
+        });
+    </script>
+    <script src="js/script.js" defer></script>
+</body>
+</html>

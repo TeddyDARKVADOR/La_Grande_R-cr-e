@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panier</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cart-page-item {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+
+    .cart-page-item img {
+      width: 80px;
+    }
+
+    #cart-count {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .bounce {
+      animation: bounce 0.3s;
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mon Panier</h1>
+  <div id="cart-count">0</div>
+
+  <div id="cart-page-items"></div>
+  <div id="cart-page-total" style="font-weight: bold; margin-top: 1rem;"></div>
+  <button id="clear-cart" style="margin-top: 1rem;">Vider le panier</button>
+
+  <!-- Optionnel : icône pour ouvrir modale -->
+  <div id="cart-icon" style="position: fixed; bottom: 20px; right: 20px; background: black; color: white; padding: 10px; border-radius: 50%;">🛒</div>
+
+  <!-- Modale panier -->
+  <div id="cart-modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center;">
+    <div style="background:white; padding:2rem; width:90%; max-width:500px; max-height:80vh; overflow:auto; position:relative;">
+      <button id="close-cart-modal" style="position:absolute; top:10px; right:10px;">Fermer</button>
+      <h2>Votre Panier</h2>
+      <div id="cart-empty-message" style="display:none;">Panier vide.</div>
+      <div id="cart-items-list"></div>
+    </div>
+  </div>
+
+  <script>
+    // === UTILS ===
+    const getLocal = (key, fallback = []) => {
+      try {
+        return JSON.parse(localStorage.getItem(key)) || fallback;
+      } catch {
+        return fallback;
+      }
+    };
+    const setLocal = (key, data) => localStorage.setItem(key, JSON.stringify(data));
+
+    // === BADGE PANIER ===
+    const badge = document.getElementById('cart-count');
+
+    const updateBadge = () => {
+      const cart = getLocal('cart');
+      const total = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+      if (badge) {
+        badge.textContent = total;
+        badge.style.display = total > 0 ? 'flex' : 'none';
+      }
+    };
+
+    const animateBadge = () => {
+      if (!badge) return;
+      badge.classList.remove('bounce');
+      void badge.offsetWidth;
+      badge.classList.add('bounce');
+      setTimeout(() => badge.classList.remove('bounce'), 250);
+    };
+
+    // === AJOUTER AU PANIER ===
+    const addToCart = (card) => {
+      const id = card.dataset.id;
+      let cart = getLocal('cart');
+      let item = cart.find(p => p.id === id);
+
+      if (item) item.qty += 1;
+      else {
+        const { name, image, price } = card.dataset;
+        cart.push({ id, name, image, price, qty: 1 });
+      }
+
+      setLocal('cart', cart);
+      updateBadge();
+      animateBadge();
+    };
+
+    document.body.addEventListener('click', (e) => {
+      if (e.target.classList.contains('add-cart')) {
+        const card = e.target.closest('.product-card');
+        if (card) addToCart(card);
+      }
+    });
+
+    // === MODALE PANIER ===
+    const renderCartModal = () => {
+      const modal = document.getElementById('cart-modal');
+      const list = document.getElementById('cart-items-list');
+      const empty = document.getElementById('cart-empty-message');
+      const cart = getLocal('cart');
+
+      if (!modal || !list || !empty) return;
+      list.innerHTML = '';
+      empty.style.display = cart.length === 0 ? 'block' : 'none';
+
+      let totalPrice = 0;
+
+      cart.forEach(item => {
+        totalPrice += parseFloat(item.price) * item.qty;
+
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <div style="margin-bottom: 1rem;">
+            <img src="${item.image}" alt="${item.name}" style="width:60px;">
+            <div>${item.name} (x${item.qty}) - ${item.price} €</div>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+
+      const totalDiv = document.createElement('div');
+      totalDiv.className = 'cart-total';
+      totalDiv.style.fontWeight = 'bold';
+      totalDiv.textContent = `Total : ${totalPrice.toFixed(2)} €`;
+      list.appendChild(totalDiv);
+    };
+
+    const toggleCartModal = (show) => {
+      const modal = document.getElementById('cart-modal');
+      if (modal) {
+        modal.style.display = show ? 'flex' : 'none';
+        document.body.style.overflow = show ? 'hidden' : '';
+        if (show) renderCartModal();
+      }
+    };
+
+    document.getElementById('cart-icon')?.addEventListener('click', () => toggleCartModal(true));
+    document.getElementById('close-cart-modal')?.addEventListener('click', () => toggleCartModal(false));
+    document.getElementById('cart-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'cart-modal') toggleCartModal(false);
+    });
+
+    // === PAGE PANIER ===
+    const renderCartPage = () => {
+      const container = document.getElementById('cart-page-items');
+      const totalDiv = document.getElementById('cart-page-total');
+      const clearButton = document.getElementById('clear-cart');
+      if (!container || !totalDiv || !clearButton) return;
+
+      let cart = getLocal('cart');
+      container.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p>Votre panier est vide.</p>';
+        totalDiv.textContent = '';
+        return;
+      }
+
+      cart.forEach(item => {
+        total += parseFloat(item.price) * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-page-item';
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <span>${item.name}</span>
+          <span>Quantité: ${item.qty}</span>
+          <span>Prix: ${item.price} €</span>
+          <button class="remove-cart-item" data-id="${item.id}">Supprimer</button>
+        `;
+        container.appendChild(div);
+      });
+
+      totalDiv.textContent = `Total : ${total.toFixed(2)} €`;
+    };
+
+    const removeFromCart = (id) => {
+      let cart = getLocal('cart');
+      const updatedCart = cart.filter(item => item.id !== id);
+      setLocal('cart', updatedCart);
+      updateBadge();
+      renderCartPage();
+      renderCartModal();
+    };
+
+    const clearCart = () => {
+      setLocal('cart', []);
+      updateBadge();
+      renderCartPage();
+      renderCartModal();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateBadge();
+
+      document.body.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-cart-item')) {
+          const id = e.target.dataset.id;
+          removeFromCart(id);
+        }
+        if (e.target.id === 'clear-cart') {
+          clearCart();
+        }
+      });
+
+      renderCartPage(); // Render if panier.html is open
+    });
+  </script>
+</body>
+</html>

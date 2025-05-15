@@ -1,0 +1,290 @@
+   :root {
+            --primary-color: #e31e52;
+            --secondary-color: #003b73;
+            --accent-color: #ffbe00;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --prince-color: #fc967f;
+            --chevalier-color: #c13e21;
+            --roi-color: #ba8f35;
+            --spacing: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+  
+       
+
+
+        .points-summary {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .intro-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .intro-section p {
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            font-size: 1.1rem;
+        }
+
+        .cards-display {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card-display {
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card-display:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-display img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .status-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+
+        .status-tab {
+            padding: 0.8rem 1.5rem;
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .status-tab.active {
+            color: white;
+        }
+
+        .status-tab:nth-child(1).active {
+            background-color: var(--prince-color);
+        }
+
+        .status-tab:nth-child(2).active {
+            background-color: var(--chevalier-color);
+        }
+
+        .status-tab:nth-child(3).active {
+            background-color: var(--roi-color);
+        }
+
+        .status-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .status-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .status-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .status-header {
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .status-header.prince {
+            background-color: var(--prince-color);
+        }
+
+        .status-header.chevalier {
+            background-color: var(--chevalier-color);
+        }
+
+        .status-header.roi {
+            background-color: var(--roi-color);
+        }
+
+        .status-header h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-body {
+            padding: 2rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .featured-benefit {
+            background-color: rgba(255, 190, 0, 0.15);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .featured-benefit h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .status-footer {
+            padding: 1.5rem;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .status-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .status-button:hover {
+            background-color: #e8ad00;
+        }
+
+        .cta-section {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #e8ad00;
+        }
+
+      
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        .conditions {
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .adobe {
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-radius: 5%;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .points-summary {
+                font-size: 1.2rem;
+            }
+
+            .status-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .status-tab {
+                width: 80%;
+                text-align: center;
+            }
+
+            .card-display {
+                width: 100%;
+                max-width: 300px;
+            }
+        }

@@ -1,0 +1,16 @@
+.carousel-section {
+  padding: 40px 0;
+  background: #f0f8ff;
+}
+.swiper-container {
+  width: 90%;
+  margin: auto;
+}
+.swiper-slide {
+  text-align: center;
+}
+.swiper-slide img {
+  border-radius: 8px;
+  max-height: 200px;
+  object-fit: cover;
+}

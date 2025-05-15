@@ -1,0 +1,338 @@
+<style>
+    /* Styles pour le Chatbot */
+    .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+    
+    .chatbot-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #0066cc;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .chatbot-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .chatbot-icon {
+        width: 30px;
+        height: 30px;
+        fill: white;
+    }
+    
+    .chatbot-window {
+        position: absolute;
+        bottom: 75px;
+        right: 0;
+        width: 320px;
+        height: 400px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        transform-origin: bottom right;
+    }
+    
+    .chatbot-window.active {
+        display: flex;
+        animation: popup 0.3s forwards;
+    }
+    
+    @keyframes popup {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .chatbot-header {
+        background-color: #0066cc;
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .chatbot-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    .chatbot-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .chatbot-message {
+        max-width: 80%;
+        padding: 10px 12px;
+        border-radius: 16px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .chatbot-message.bot {
+        background-color: #f0f0f0;
+        color: #333;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+    }
+    
+    .chatbot-message.user {
+        background-color: #0066cc;
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+    }
+    
+    .chatbot-input-container {
+        padding: 10px;
+        border-top: 1px solid #eee;
+        display: flex;
+        align-items: center;
+    }
+    
+    .chatbot-input {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+    
+    .chatbot-send {
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-left: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .chatbot-typing {
+        display: flex;
+        gap: 5px;
+        padding: 10px;
+        align-self: flex-start;
+    }
+    
+    .chatbot-typing span {
+        width: 8px;
+        height: 8px;
+        background-color: #999;
+        border-radius: 50%;
+        animation: typing 1s infinite ease-in-out;
+    }
+    
+    .chatbot-typing span:nth-child(1) {
+        animation-delay: 0s;
+    }
+    
+    .chatbot-typing span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .chatbot-typing span:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    
+    @keyframes typing {
+        0%, 60%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-5px); }
+    }
+    
+    /* Badge notification sur le bouton chatbot */
+    .chatbot-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 20px;
+        height: 20px;
+        background-color: #e74c3c;
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.3s ease;
+    }
+    
+    .chatbot-badge.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+</style>
+
+<div class="chatbot-container">
+    <div class="chatbot-button" id="chatbotButton">
+        <svg class="chatbot-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,6c1.93,0,3.5,1.57,3.5,3.5 S13.93,13,12,13s-3.5-1.57-3.5-3.5S10.07,6,12,6z M12,20c-2.03,0-4.43-0.82-6.14-2.88C7.55,15.8,9.68,15,12,15 s4.45,0.8,6.14,2.12C16.43,19.18,14.03,20,12,20z" />
+        </svg>
+        <div class="chatbot-badge" id="chatbotBadge">1</div>
+    </div>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <span>Merlin - Assistant Fidélité</span>
+            <button class="chatbot-close" id="chatbotClose">✕</button>
+        </div>
+        
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chatbot-message bot">Bonjour 👋 Je suis Merlin, votre assistant virtuel. Comment puis-je vous aider avec notre nouveau programme de fidélité?</div>
+        </div>
+        
+        <div class="chatbot-input-container">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Posez votre question...">
+            <button class="chatbot-send" id="chatbotSend">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Script pour charger les images si nécessaire et gérer le chatbot -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Fonctionnalités du chatbot
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotBadge = document.getElementById('chatbotBadge');
+        
+        // Afficher le badge après un délai
+        setTimeout(() => {
+            chatbotBadge.classList.add('active');
+        }, 3000);
+        
+        // Ouvrir/fermer la fenêtre de chat
+        chatbotButton.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+            chatbotBadge.classList.remove('active');
+        });
+        
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+        
+        // Gérer l'envoi de messages
+        const sendMessage = () => {
+            const message = chatbotInput.value.trim();
+            if (!message) return;
+            
+            // Ajouter le message de l'utilisateur
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+            
+            // Simuler la réponse du bot
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                removeTypingIndicator();
+                const botResponse = getBotResponse(message);
+                addMessage(botResponse, 'bot');
+            }, 1000 + Math.random() * 1000);
+        };
+        
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+        
+        // Ajouter un message à la conversation
+        const addMessage = (text, sender) => {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chatbot-message', sender);
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        };
+        
+        // Afficher l'indicateur de saisie
+        const showTypingIndicator = () => {
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('chatbot-typing');
+            typingDiv.id = 'typingIndicator';
+            
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement('span');
+                typingDiv.appendChild(dot);
+            }
+            
+            chatbotMessages.appendChild(typingDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        };
+        
+        // Supprimer l'indicateur de saisie
+        const removeTypingIndicator = () => {
+            const typingDiv = document.getElementById('typingIndicator');
+            if (typingDiv) typingDiv.remove();
+        };
+        
+        // Obtenir la réponse du bot basée sur le message
+        const getBotResponse = (message) => {
+            message = message.toLowerCase();
+            
+            if (message.includes('chevalier') || message.includes('5%')) {
+                return "Le statut Chevalier vous offre 5% de remise sur tous vos achats et l'accès à des offres exclusives toute l'année! Vous l'obtenez après 500€ d'achats annuels.";
+            } else if (message.includes('roi') || message.includes('reine') || message.includes('10%')) {
+                return "Les statuts Roi et Reine sont nos plus prestigieux! Vous bénéficiez de 10% de remise permanente, des cadeaux pour votre anniversaire et un service client prioritaire. Atteint après 1000€ d'achats annuels.";
+            } else if (message.includes('prince') || message.includes('princesse')) {
+                return "Le statut Petit Prince ou Petite Princesse est spécial pour les enfants! Ils reçoivent des cadeaux surprises, des invitations à des événements exclusifs et des remises sur les jouets de leur âge.";
+            } else if (message.includes('avantage') || message.includes('bénéfice') || message.includes('programme')) {
+                return "Notre programme de fidélité offre des remises exclusives (5-10%), des cadeaux d'anniversaire, des avant-premières sur les nouveautés, et un système de points à échanger contre des cadeaux!";
+            } else if (message.includes('inscri')) {
+                return "Pour vous inscrire au programme de fidélité, c'est simple et gratuit! Cliquez sur le bouton 'DÉCOUVRIR LE PROGRAMME' ou rendez-vous en magasin avec une pièce d'identité.";
+            } else if (message.includes('bonjour') || message.includes('salut') || message.includes('hello')) {
+                return "Bonjour! Je suis Merlin, l'assistant virtuel dédié au programme de fidélité. Comment puis-je vous aider aujourd'hui?";
+            } else if (message.includes('merci')) {
+                return "Je vous en prie! N'hésitez pas si vous avez d'autres questions sur notre programme de fidélité. 😊";
+            } else {
+                return "Je suis spécialisé dans notre programme de fidélité. Vous pouvez me demander des informations sur les niveaux Chevalier, Roi/Reine, ou Prince/Princesse, ou comment vous inscrire!";
+            }
+        };
+        
+        // Notification automatique après un délai
+        setTimeout(() => {
+            if (!chatbotWindow.classList.contains('active')) {
+                chatbotBadge.textContent = '1';
+                chatbotBadge.classList.add('active');
+            }
+        }, 20000);
+    });
+</script>

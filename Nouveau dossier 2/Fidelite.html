@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme de Fidélité - La Grande Récré</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/stylesfidel.css">
+    
+</head>
+<body>
+    
+
+ <div id="header"></div>
+<script>
+    fetch('display/header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+</script>
+
+    <div class="container">
+        <div class="points-summary">
+            1€ = 1 point | 350 points = 10€
+        </div>
+
+        <section class="intro-section">
+            <h2>Un programme de fidélité par paliers</h2>
+            <p>Rejoignez notre programme de fidélité et bénéficiez d'avantages exclusifs. Plus vous jouez, plus vous gagnez ! Montez dans les rangs de notre programme pour débloquer encore plus de privilèges.</p>
+            <p>Découvrez nos 3 statuts et leurs avantages :</p>
+        </section>
+
+        <div class="cards-display">
+            <div class="card-display">
+                <img src="images/top_left.png" onclick="showStatus(0)" alt="Carte Petit Prince/Petite Princesse La Grande Récré">
+            </div>
+            <div class="card-display">
+                <img src="images/bottom_left.png" onclick="showStatus(1)" alt="Carte Chevalier La Grande Récré">
+            </div>
+            <div class="card-display">
+                <img src="images/bottom_right.png"  onclick="showStatus(2)"alt="Carte Roi du Jeu La Grande Récré">
+            </div>
+        </div>
+
+        <div class="status-tabs">
+            <div class="status-tab active" onclick="showStatus(0)">Petit Prince/Princesse</div>
+            <div class="status-tab" onclick="showStatus(1)">Chevalier</div>
+            <div class="status-tab" onclick="showStatus(2)">Roi/Reine du Jeu</div>
+        </div>
+
+        <div class="status-contents">
+            <div class="status-content active">
+                <div class="status-card">
+                    <div class="status-header prince">
+                        <h3>Petit Prince / Petite Princesse</h3>
+                        <p>Le premier niveau de notre programme</p>
+                    </div>
+                    <div class="status-body">
+                        <ul class="benefits-list">
+                            <li>Cumul classique : 1 € = 1 point</li>
+                            <li>100 points offerts à l'inscription</li>
+                            <li>100 points offerts pour l'anniversaire de l'enfant</li>
+                            <li>50 points offerts lors d'opérations ponctuelles</li>
+                            <li>Cadeau d'anniversaire (petite surprise en magasin)</li>
+                            <li>Accès aux offres réservées aux membres</li>
+                            <li>Points doublés (x2) sur les marques exclusives</li>
+                            <li>Newsletter avec idées cadeaux et bons plans</li>
+                        </ul>
+                        <div class="featured-benefit">
+                            <h4>Comment progresser ?</h4>
+                            <p>Cumulez vos achats pour monter au rang de Chevalier et bénéficier d'avantages supplémentaires !</p>
+                        </div>
+                        <div>
+                            <img class="adobe" src="images/robe-de-princesse-et-prince.webp" alt="Petite Prince/Petite Princesse">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-content">
+                <div class="status-card">
+                    <div class="status-header chevalier">
+                        <h3>Chevalier</h3>
+                        <p>Le deuxième niveau de notre programme</p>
+                    </div>
+                    <div class="status-body">
+                        <ul class="benefits-list">
+                            <li>Cumul classique : 1 € = 1 point</li>
+                            <li>100 points offerts à l'inscription</li>
+                            <li>100 points offerts pour l'anniversaire de l'enfant</li>
+                            <li>50 points offerts lors d'opérations ponctuelles</li>
+                            <li>Cadeau d'anniversaire (petite surprise en magasin)</li>
+                            <li>Accès aux offres réservées aux membres</li>
+                            <li>Points doublés (x2) sur les marques exclusives</li>
+                            <li>Newsletter avec idées cadeaux et bons plans</li>
+                            <li><strong>Chèque fidélité de 10 €</strong> automatiquement déclenché dès 350 points</li>
+                            <li><strong>Accès prioritaire</strong> à certaines offres ou ventes privées (48h avant)</li>
+                            <li><strong>1 atelier gratuit par an</strong> (créatif, ludique, selon disponibilité magasin)</li>
+                            <li><strong>Badge "Chevalier"</strong> visible dans le compte fidélité</li>
+                            <li><strong>Recommandations personnalisées</strong> selon l'âge de l'enfant</li>
+                            <li>Participation à <strong>tirages au sort exclusifs membres</strong></li>
+                            <li><strong>Carte fidélité numérique</strong> dynamique (avatar, progression, étoiles)</li>
+                        </ul>
+                        <div class="featured-benefit">
+                            <h4>Votre chèque fidélité</h4>
+                            <p>Recevez automatiquement un chèque de 10€ dès 350 points cumulés, utilisable en magasin ou sur le site web.</p>
+                        </div>
+                        <div>
+                            <img class="adobe" src="images/chevalier.jpg" alt="Petite Prince/Petite Princesse">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-content">
+                <div class="status-card">
+                    <div class="status-header roi">
+                        <h3>Roi / Reine du Jeu</h3>
+                        <p>Le niveau ultime de notre programme</p>
+                    </div>
+                    <div class="status-body">
+                        <ul class="benefits-list">
+                            <li><strong>Chèque fidélité de 10 €</strong> automatiquement déclenché dès 350 points</li>
+                            <li><strong>Accès prioritaire</strong> à certaines offres ou ventes privées (48h avant)</li>
+                            <li><strong>1 atelier gratuit par an</strong> (créatif, ludique, selon disponibilité magasin)</li>
+                            <li><strong>Badge "Roi/Reine"</strong> visible dans le compte fidélité</li>
+                            <li><strong>Recommandations personnalisées</strong> selon l'âge de l'enfant</li>
+                            <li>Participation à <strong>tirages au sort exclusifs membres</strong></li>
+                            <li><strong>Carte fidélité numérique</strong> dynamique (avatar, progression, étoiles)</li>
+                            <li><strong>Livraison gratuite dès 30 € d'achat</strong></li>
+                            <li><strong>Doublement des points (x2) sur TOUT le panier</strong> pendant 2 journées VIP/an</li>
+                            <li><strong>Cadeau fidélité de fin d'année</strong> (coffret surprise ou bon exclusif)</li>
+                            <li><strong>Surprise personnalisée de Noël pour les enfants</strong> (digitalisée ou physique)</li>
+                            <li><strong>Service client prioritaire</strong> par e-mail ou chat</li>
+                            <li><strong>2 ateliers gratuits par an</strong></li>
+                            <li>Accès VIP aux événements en magasin (rencontres, démonstrations, animations)</li>
+                            <li>Invitation aux <strong>tests produits enfants</strong> (optionnel, sur candidature)</li>
+                        </ul>
+                        <div class="featured-benefit">
+                            <h4>Privilèges exclusifs</h4>
+                            <p>Profitez d'avantages exclusifs tout au long de l'année : journées VIP, cadeaux personnalisés, invitations spéciales et bien plus encore !</p>
+                        </div>
+                        <div>
+                            <img class="adobe" src="images/roi_arture.jpg" alt="Petite Prince/Petite Princesse">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Découvrez le programme de fidélité en détails</h2>
+            <a href="#" class="cta-button">Adhérez au programme</a>
+        </div>
+    </section>
+
+
+
+
+ <div id="footer"></div>
+<script>
+    fetch('display/footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+
+        function showStatus(index) {
+            // Hide all content sections
+            const contents = document.querySelectorAll('.status-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.status-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate the selected tab and content
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+    </script>
+    <script src="js/script.js" defer></script>
+</body>
+</html>

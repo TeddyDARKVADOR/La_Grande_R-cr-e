@@ -1,0 +1,121 @@
+.loyalty-section {
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+.loyalty-title {
+    text-align: center;
+    margin: 30px 0;
+    color: #E63312;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.loyalty-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.loyalty-main {
+    flex: 1 1 60%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    min-height: 300px;
+}
+
+.loyalty-side {
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loyalty-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    min-height: 140px;
+}
+
+.loyalty-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loyalty-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+}
+
+.loyalty-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.loyalty-text-lg {
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.loyalty-benefits {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+.loyalty-card:hover, .loyalty-main:hover {
+    transform: translateY(-5px);
+}
+
+.loyalty-cta {
+    display: block;
+    text-align: center;
+    margin: 20px auto 40px;
+    padding: 12px 30px;
+    background-color: #E63312;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+}
+
+.loyalty-cta:hover {
+    background-color: #c62200;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .loyalty-container {
+        flex-direction: column;
+    }
+    
+    .loyalty-main, .loyalty-card {
+        min-height: 200px;
+    }
+}

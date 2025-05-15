@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Parent - Espace Famille</title>
+    <link rel="stylesheet" href="css/compte.css">
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('display/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+
+    
+    <div class="container">
+        <!-- Profil Parent -->
+        <div class="profile-header">
+            <div class="profile-pic">
+                👤
+            </div>
+            <div class="profile-info">
+                <h1>Sophie Martin</h1>
+                <p>sophie.martin@email.com</p>
+                <p>Membre depuis: Janvier 2024</p>
+            </div>
+        </div>
+        
+        <div class="welcome-message">
+            Bienvenue dans votre espace famille. Gérez les profils de vos enfants et accédez à toutes les fonctionnalités parentales dans un environnement sécurisé.
+        </div>
+        
+        <!-- Statistiques -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>Enfants</h3>
+                <p>3</p>
+            </div>
+            <div class="stat-box">
+                <h3>Activités ce mois</h3>
+                <p>12</p>
+            </div>
+            <div class="stat-box">
+                <h3>Points fidélité</h3>
+                <p>350</p>
+            </div>
+            <div class="stat-box">
+                <h3>Commandes</h3>
+                <p>5</p>
+            </div>
+        </div>
+        
+        <!-- Section Enfants -->
+        <div class="section-title">
+            <i>👤</i>
+            <h2>Mes enfants</h2>
+        </div>
+        
+        <div class="children-container">
+            <!-- Enfant 1 -->
+            <div class="child-card">
+                <div class="badge">2</div>
+                <div class="child-avatar">L</div>
+                <div class="child-name">Lucas</div>
+                <div class="child-age">8 ans</div>
+                <div class="child-actions">
+                    <button>Gérer</button>
+                    <button>Préférences</button>
+                </div>
+            </div>
+            
+            <!-- Enfant 2 -->
+            <div class="child-card">
+                <div class="child-avatar">E</div>
+                <div class="child-name">Emma</div>
+                <div class="child-age">6 ans</div>
+                <div class="child-actions">
+                    <button>Gérer</button>
+                    <button>Préférences</button>
+                </div>
+            </div>
+            
+            <!-- Enfant 3 -->
+            <div class="child-card">
+                <div class="badge">1</div>
+                <div class="child-avatar">N</div>
+                <div class="child-name">Noah</div>
+                <div class="child-age">3 ans</div>
+                <div class="child-actions">
+                    <button>Gérer</button>
+                    <button>Préférences</button>
+                </div>
+            </div>
+            
+            <!-- Ajouter un enfant -->
+            <div class="add-child">
+                <div class="add-child-icon">+</div>
+                <div class="add-child-text">Ajouter un enfant</div>
+            </div>
+        </div>
+        
+        <!-- Actions rapides -->
+        <div class="section-title">
+            <i>⚡</i>
+            <h2>Actions rapides</h2>
+        </div>
+        
+        <div class="actions-container">
+            <div class="action-box">
+                <div class="action-icon">🎁</div>
+                <div class="action-title">Liste de souhaits</div>
+                <div class="action-description">Gérer les listes de souhaits de vos enfants</div>
+            </div>
+            
+            <div class="action-box">
+                <div class="action-icon">🛒</div>
+                <div class="action-title">Commandes</div>
+                <div class="action-description">Suivre vos commandes en cours</div>
+            </div>
+            
+            <div class="action-box">
+                <div class="action-icon">📅</div>
+                <div class="action-title">Anniversaires</div>
+                <div class="action-description">Planifier les événements à venir</div>
+            </div>
+            
+            <div class="action-box">
+                <div class="action-icon">⚙️</div>
+                <div class="action-title">Paramètres</div>
+                <div class="action-description">Gérer les paramètres du compte</div>
+            </div>
+            
+            <div class="action-box">
+                <div class="action-icon">🔒</div>
+                <div class="action-title">Contrôle parental</div>
+                <div class="action-description">Paramétrer les restrictions</div>
+            </div>
+            
+            <div class="action-box">
+                <div class="action-icon">📋</div>
+                <div class="action-title">Historique</div>
+                <div class="action-description">Consulter l'historique d'activité</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    <script>
+        fetch('display/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

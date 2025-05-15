@@ -1,0 +1,81 @@
+/* Nos marques section */
+        .our-brands {
+            padding: 40px 5%;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .our-brands h2 {
+            color: #003b7a;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .brands-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-item {
+            width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .brand-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Slider pour marques */
+        .brand-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .brand-slider-wrapper {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-slide {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 20px;
+        }
+
+        .brand-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+        }
